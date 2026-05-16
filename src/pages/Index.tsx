@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import usePageMeta from "@/hooks/usePageMeta";
 import HowItWorks from "@/components/HowItWorks";
+import HeroIllustration from "@/components/HeroIllustration";
 import WhatItDelivers from "@/components/WhatItDelivers";
 import ForWhom from "@/components/ForWhom";
 import Testimonials from "@/components/Testimonials";
@@ -44,12 +45,8 @@ const Index = () => {
           </div>
 
           {/* Ilustração */}
-          <div className="flex justify-center md:justify-end -mx-3 sm:mx-0">
-            <img
-              src="/hero-illustration.svg"
-              alt="Ilustração de consulta de dados por CPF"
-              className="w-full max-w-none md:max-w-[560px] h-auto"
-            />
+          <div className="flex justify-center md:justify-end -mx-3 sm:mx-0 w-full md:max-w-[560px] md:ml-auto">
+            <HeroIllustration />
           </div>
         </div>
       </section>

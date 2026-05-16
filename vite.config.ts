@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    allowedHosts: [".trycloudflare.com"],
   },
   optimizeDeps: {
     include: ["react", "react-dom", "react-router-dom"],
