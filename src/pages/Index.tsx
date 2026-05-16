@@ -45,7 +45,7 @@ const Index = () => {
           </div>
 
           {/* Ilustração */}
-          <div className="flex justify-center md:justify-end -mx-3 sm:mx-0 w-full md:max-w-[560px] md:ml-auto">
+          <div className="w-full flex justify-center md:justify-end">
             <HeroIllustration />
           </div>
         </div>

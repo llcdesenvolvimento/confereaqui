@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import usePageMeta from "@/hooks/usePageMeta";
 import HowItWorks from "@/components/HowItWorks";
@@ -14,6 +14,7 @@ import {
   AlertCircle,
   Search,
   Fingerprint,
+  BadgeCheck,
 } from "lucide-react";
 import pixLogo from "@/assets/pix-logo.png";
 
@@ -69,6 +70,13 @@ const Consulta = () => {
   const [dataError, setDataError] = useState<string | null>(null);
 
   const cpf = cpfData?.cpf || "00000000000";
+
+  const totalDestaques = useMemo(() => {
+    const seed = (cpfData?.cpf || searchId).replace(/\D/g, "");
+    let h = 0;
+    for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+    return 14 + (h % 13);
+  }, [cpfData?.cpf, searchId]);
   const formattedCPF = formatarCpfExibicao(cpf);
   const [email, setEmail] = useState("");
   const [emailTouched, setEmailTouched] = useState(false);
@@ -134,6 +142,10 @@ const Consulta = () => {
     if (Number.isNaN(ts)) return true;
     return Date.now() - ts > 60 * 60 * 1000;
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
 
   // Buscar dados do CPF do banco usando search_id
   useEffect(() => {
@@ -520,57 +532,38 @@ const Consulta = () => {
               }
               style={{ transitionDelay: showToast ? "0ms" : "0ms" }}>
 
-            <div className="relative overflow-hidden rounded-2xl bg-success px-5 py-4 flex items-center gap-3.5 shadow-lg shadow-success/25">
-              <div
-                className="absolute inset-0 opacity-25 animate-[shimmer_2.5s_ease-in-out_infinite] pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)",
-                  backgroundSize: "200% 100%",
-                }}
-              />
-              <div className="relative shrink-0 animate-[bounce-in_0.5s_ease-out_0.4s_both]">
-                <span className="absolute inset-0 rounded-full bg-white/30 animate-ping" />
-                <span className="absolute inset-1 rounded-full bg-white/20" />
-                <div className="relative h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-lg">
-                  <UserCheck className="h-5 w-5 text-success" strokeWidth={2.5} />
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-success/15 to-success/5 border border-success/20 px-5 py-4 flex items-center gap-4">
+              <div className="relative shrink-0">
+                <span className="absolute inset-0 rounded-full bg-success/40 animate-ping" />
+                <div className="relative h-11 w-11 rounded-full bg-success flex items-center justify-center shadow-lg shadow-success/40">
+                  <BadgeCheck className="h-6 w-6 text-white" strokeWidth={2.5} />
                 </div>
               </div>
               <div className="relative">
-                <p className="text-sm font-extrabold leading-tight tracking-tight text-white">Consulta efetuada com sucesso</p>
-                <p className="text-xs mt-0.5 text-white/90">Dados encontrados para o CPF {formattedCPF}</p>
+                <p className="text-sm font-extrabold text-success leading-tight">Consulta efetuada com sucesso</p>
+                <p className="text-xs mt-0.5 text-success/80">Dados localizados para o CPF {formattedCPF}</p>
               </div>
             </div>
           </div>
 
           {/* ── DATA PREVIEW ────────────────────────────── */}
           <section className="animate-fade-in">
-            <div className="relative rounded-2xl border border-primary/20 bg-gradient-to-br from-card to-primary/5 shadow-xl overflow-hidden">
-              <Fingerprint
-                className="absolute -right-4 top-1/2 -translate-y-1/2 h-32 w-32 text-primary/20"
-                strokeWidth={1.5}
-              />
-              <div className="relative flex items-center gap-4 p-5 sm:p-6">
-                <div className="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-gradient-to-br from-primary to-[hsl(224_85%_35%)] flex items-center justify-center shadow-lg shadow-primary/30 ring-4 ring-primary/10 shrink-0">
-                  <span className="text-xl sm:text-2xl font-extrabold text-primary-foreground">{obterPrimeiroNome(cpfData.nome_mascarado).charAt(0)}</span>
+            <div className="rounded-2xl border border-primary/20 bg-gradient-to-br from-card to-primary/5 shadow-md p-4 flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <UserCheck className="h-5 w-5 text-primary" strokeWidth={2.2} />
+              </div>
+              <div className="min-w-0 flex-1 grid grid-cols-2 gap-3">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground leading-none">Primeiro Nome</p>
+                  <p className="text-sm font-extrabold text-foreground truncate leading-tight mt-1">
+                    {obterPrimeiroNome(cpfData.nome_mascarado)}
+                  </p>
                 </div>
-                <div className="min-w-0 flex-1 space-y-2">
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-0.5">
-                      Primeiro Nome
-                    </p>
-                    <p className="text-base sm:text-lg font-extrabold text-foreground truncate leading-tight">
-                      {obterPrimeiroNome(cpfData.nome_mascarado)}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-0.5">
-                      CPF
-                    </p>
-                    <p className="text-base sm:text-lg font-extrabold text-foreground tabular-nums tracking-tight leading-tight">
-                      {formattedCPF}
-                    </p>
-                  </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground leading-none">CPF</p>
+                  <p className="text-sm font-extrabold text-foreground tabular-nums tracking-tight leading-tight mt-1">
+                    {formattedCPF}
+                  </p>
                 </div>
               </div>
             </div>
@@ -579,12 +572,23 @@ const Consulta = () => {
           {/* ── REPORT TABLE ─────────────────────────────── */}
           <section className="animate-fade-in" style={{ animationDelay: "0.15s", animationFillMode: "both" }}>
             <div className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden">
-              {/* Blue header */}
-              <div className="bg-gradient-to-br from-primary to-[hsl(220,95%,42%)] px-5 sm:px-7 py-4 sm:py-5">
-                <h3 className="text-[20px] sm:text-[24px] font-bold text-white text-center">
-                  Prévia do Resultado
+              {/* Header */}
+              <button
+                type="button"
+                onClick={() => document.getElementById("payment-section")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                className="w-full text-left bg-primary px-5 sm:px-7 py-4 transition-all hover:brightness-110 active:scale-[0.995]"
+              >
+                <h3 className="text-[17px] sm:text-[19px] font-bold text-white mb-1">
+                  Resultado da Consulta
                 </h3>
-              </div>
+                <p className="text-[14px] sm:text-[16px] text-white/80 flex items-center gap-1 flex-wrap">
+                  Foram encontradas até
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 backdrop-blur text-white font-bold">
+                    {totalDestaques} informações
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </p>
+              </button>
 
               <div className="divide-y divide-border">
                 {TABLE_ROWS.map((label, i) => {
@@ -623,12 +627,17 @@ const Consulta = () => {
               </div>
 
               {/* Footer CTA */}
-              <div className="px-5 sm:px-7 py-6 border-t border-border">
+              <div className="bg-[hsl(220,15%,97%)] px-5 sm:px-7 py-6 border-t border-border">
                 <div className="flex flex-col items-center text-center gap-4">
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground leading-snug max-w-md" style={{ fontFamily: "'Outfit', sans-serif" }}>
-                    Desbloqueie todas as informações do CPF{" "}
-                    <span className="text-primary tabular-nums">{formattedCPF}</span>
-                  </h3>
+                  <div className="flex flex-col items-center gap-1.5">
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground leading-snug max-w-md" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                      Desbloqueie todas as informações do CPF{" "}
+                      <span className="text-primary tabular-nums">{formattedCPF}</span>
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
+                      Acesso imediato após o pagamento via PIX
+                    </p>
+                  </div>
                   <button
                       onClick={() => document.getElementById("payment-section")?.scrollIntoView({ behavior: "smooth" })}
                       className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground text-base sm:text-[17px] font-bold px-8 py-4 rounded-xl hover:brightness-110 transition-all active:scale-[0.97] shadow-lg shadow-primary/25 whitespace-nowrap">
@@ -653,19 +662,23 @@ const Consulta = () => {
 
                 {/* Price card */}
                 <div className="bg-background rounded-2xl border border-border px-5 py-6 mb-5 text-center">
-                  <p className="text-base text-muted-foreground line-through decoration-2 mb-1">
-                    De R$ 32,90 por
-                  </p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-6xl font-extrabold tracking-tighter text-success">R$</span>
-                    <span className="text-6xl font-extrabold tracking-tighter text-success">18,90</span>
-                  </div>
-                  <div className="mt-3 flex justify-center">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-success/10 text-success text-sm font-bold">
-                      Você economiza R$ 14,00
+                  <div className="flex justify-center mb-4">
+                    <span className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full bg-primary text-primary-foreground text-lg sm:text-xl font-extrabold shadow-lg shadow-primary/30 animate-pulse-scale">
+                      🔥 43% OFF!
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-3">
+                  <p className="text-lg text-muted-foreground line-through decoration-2 mb-1">
+                    R$ 32,90
+                  </p>
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-[62px] leading-none font-extrabold tracking-tighter text-success">R$18,90</span>
+                  </div>
+                  <div className="mt-4 flex justify-center">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-success/10 text-success text-base font-bold">
+                      💰 Você economiza <span className="font-extrabold">R$14,00</span>
+                    </span>
+                  </div>
+                  <p className="text-base text-muted-foreground mt-4">
                     Pagamento seguro via <strong className="text-foreground">PIX</strong>
                   </p>
                 </div>
@@ -699,17 +712,21 @@ const Consulta = () => {
                     <button
                       onClick={iniciarPagamento}
                       disabled={showEmailError}
-                      className={`w-full flex items-center justify-center gap-2 rounded-xl px-6 py-4 text-base sm:text-lg font-bold shadow-lg transition-all hover:brightness-110 active:scale-[0.98] ${
+                      className={`w-full flex items-center justify-center gap-2.5 rounded-xl px-6 py-4 text-base sm:text-lg font-bold shadow-lg transition-all hover:brightness-110 active:scale-[0.98] ${
                       showEmailError ?
                       "bg-muted text-muted-foreground cursor-not-allowed shadow-none" :
                       "bg-primary text-primary-foreground shadow-primary/20 hover:shadow-primary/30"}`
                       }>
 
+                        <img src={pixLogo} alt="" aria-hidden className="h-5 w-5 object-contain brightness-0 invert" />
                         Concluir Pagamento
                     </button>
 
-                    <p className="text-center text-[11px] sm:text-[13px] font-semibold text-muted-foreground mt-3 whitespace-nowrap">
-                      Liberação automática após a confirmação do pagamento
+                    <p className="text-center text-[13px] sm:text-[15px] font-semibold text-muted-foreground mt-3 whitespace-nowrap">
+                      Acesso imediato após o pagamento
+                    </p>
+                    <p className="text-center text-[11px] sm:text-[12px] text-muted-foreground/80 mt-2 leading-relaxed">
+                      Seu e-mail será usado exclusivamente para gerar o pagamento e enviar o relatório no e-mail indicado.
                     </p>
                   </>
                   }
@@ -736,8 +753,11 @@ const Consulta = () => {
                       Gerando Pagamento...
                     </button>
 
-                    <p className="text-center text-[11px] sm:text-[13px] font-semibold text-muted-foreground mt-3 whitespace-nowrap">
-                      Liberação automática após a confirmação do pagamento
+                    <p className="text-center text-[13px] sm:text-[15px] font-semibold text-muted-foreground mt-3 whitespace-nowrap">
+                      Acesso imediato após o pagamento
+                    </p>
+                    <p className="text-center text-[11px] sm:text-[12px] text-muted-foreground/80 mt-2 leading-relaxed">
+                      Seu e-mail será usado exclusivamente para gerar o pagamento e enviar o relatório no e-mail indicado.
                     </p>
                   </>
                   }

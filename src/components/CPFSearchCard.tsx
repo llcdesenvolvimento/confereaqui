@@ -2,6 +2,41 @@ import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { useBuscarCpf } from "@/hooks/useBuscarCpf";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const PURPOSES: { value: string; title: string; description: string }[] = [
+  {
+    value: "legitimo-interesse",
+    title: "Legítimo interesse",
+    description: "Uso pessoal com motivo válido",
+  },
+  {
+    value: "confirmacao-identidade",
+    title: "Confirmação de identidade",
+    description: "Conferir identidade da pessoa",
+  },
+  {
+    value: "ciclo-credito",
+    title: "Ciclo de crédito",
+    description: "Avaliar crédito antes de fechar",
+  },
+  {
+    value: "execucao-contrato",
+    title: "Execução de contrato",
+    description: "Antes de fechar um acordo",
+  },
+  {
+    value: "outros",
+    title: "Outros",
+    description: "Outra finalidade não listada",
+  },
+];
 
 const formatDoc = (value: string): string => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
@@ -30,6 +65,7 @@ const isValidDoc = (value: string): boolean => {
 const CPFSearchCard = () => {
   const navigate = useNavigate();
   const [doc, setDoc] = useState("");
+  const [purpose, setPurpose] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
   const { buscar, loading: buscarLoading } = useBuscarCpf();
@@ -50,11 +86,15 @@ const CPFSearchCard = () => {
       setErrorMsg("Digite um CPF válido para continuar");
       return;
     }
+    if (!purpose) {
+      setErrorMsg("Indique a finalidade da consulta antes de continuar");
+      return;
+    }
 
     setErrorMsg("");
 
     try {
-      const result = await buscar(digits, '');
+      const result = await buscar(digits, purpose);
 
       if (!result.success) {
         setErrorMsg(result.error?.message || 'Erro ao buscar CPF');
@@ -70,23 +110,8 @@ const CPFSearchCard = () => {
 
   return (
     <>
-      {buscarLoading && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/85 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="flex flex-col items-center gap-4 px-6 text-center">
-            <div className="relative">
-              <div className="h-16 w-16 rounded-full border-4 border-primary/15" />
-              <div className="absolute inset-0 h-16 w-16 rounded-full border-4 border-primary border-t-transparent animate-spin" />
-            </div>
-            <div>
-              <p className="text-base font-bold text-foreground">Realizando consulta</p>
-              <p className="text-sm text-muted-foreground mt-1">Aguarde alguns segundos…</p>
-            </div>
-          </div>
-        </div>
-      )}
-
     <section id="lookup-form" className="pt-8 md:pt-11 pb-6 md:pb-8 px-3 sm:px-4">
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-xl">
         <div className="text-center mb-5 sm:mb-7 px-2">
           <h1
             className="text-[34px] leading-[1.1] sm:text-[42px] md:text-[52px] md:leading-[1.05] font-extrabold text-foreground tracking-tight"
@@ -99,7 +124,7 @@ const CPFSearchCard = () => {
           </p>
         </div>
 
-        <div className="bg-card rounded-3xl shadow-[0_40px_100px_-20px_hsl(220_95%_54%_/_0.45),0_15px_40px_-12px_hsl(220_30%_20%_/_0.22)] px-7 py-8 sm:px-12 sm:py-10 text-left">
+        <div className="bg-card rounded-xl shadow-[0_40px_100px_-20px_hsl(220_95%_54%_/_0.45),0_15px_40px_-12px_hsl(220_30%_20%_/_0.22)] px-4 py-7 sm:px-8 sm:py-8 text-left">
           <label htmlFor="doc-input" className="block text-[11px] font-bold text-foreground/80 uppercase tracking-wider mb-2">
             Insira o CPF que deseja consultar
           </label>
@@ -137,6 +162,43 @@ const CPFSearchCard = () => {
               Digite um CPF válido
             </p>
           }
+
+          <label htmlFor="purpose-select" className="block text-[11px] font-bold text-foreground/80 uppercase tracking-wider mt-5 mb-2">
+            Indique a finalidade da consulta
+          </label>
+          <Select
+            value={purpose}
+            onValueChange={(v) => {
+              setPurpose(v);
+              setErrorMsg("");
+            }}
+            disabled={buscarLoading}
+          >
+            <SelectTrigger
+              id="purpose-select"
+              className="w-full rounded-xl border border-[hsl(220,15%,82%)] bg-background px-4 py-3.5 h-auto text-base font-semibold text-foreground data-[placeholder]:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all disabled:opacity-50 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:stroke-[2.5]"
+            >
+              <SelectValue placeholder="Selecione uma opção">
+                {purpose && PURPOSES.find((o) => o.value === purpose)?.title}
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent
+              position="popper"
+              side="bottom"
+              sideOffset={4}
+              avoidCollisions={false}
+              className="max-w-[calc(100vw-2rem)]"
+            >
+              {PURPOSES.map((opt) => (
+                <SelectItem key={opt.value} value={opt.value} className="py-3 pr-8">
+                  <div className="flex flex-col gap-0.5 whitespace-normal">
+                    <span className="text-sm font-bold text-foreground">{opt.title}</span>
+                    <span className="text-xs text-muted-foreground leading-snug">{opt.description}</span>
+                  </div>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
           <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
             Ao continuar, você concorda com os <a href="/termos-de-uso" className="text-primary font-medium hover:underline">Termos de Uso</a> e a <a href="/politica-de-privacidade" className="text-primary font-medium hover:underline">Política de Privacidade</a>.

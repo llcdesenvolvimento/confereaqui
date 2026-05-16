@@ -23,8 +23,6 @@ const FAQPage = lazy(() => import("./pages/FAQ"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const LogoPreview = lazy(() => import("./pages/LogoPreview"));
-const Mockups = lazy(() => import("./pages/Mockups"));
-const MockupsV2 = lazy(() => import("./pages/MockupsV2"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -58,8 +56,6 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/logo-preview" element={<LogoPreview />} />
-              <Route path="/mockups" element={<Mockups />} />
-              <Route path="/mockups-v2" element={<MockupsV2 />} />
 
               {/* Redirects 301 das rotas antigas */}
               <Route path="/termos" element={<Navigate to="/termos-de-uso" replace />} />

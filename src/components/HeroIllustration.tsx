@@ -1,114 +1,92 @@
+import { ShieldCheck, User, Mail, MapPin, Phone, Briefcase, DollarSign, Users } from "lucide-react";
+
+const FieldRow = ({ valueWidth }: { valueWidth: string }) => (
+  <div>
+    <div className="h-1.5 w-14 rounded-full bg-muted-foreground/30" />
+    <div className={`h-2 ${valueWidth} rounded-full bg-foreground mt-1.5`} />
+  </div>
+);
+
+const FloatingCard = ({
+  Icon,
+  color,
+}: {
+  Icon: typeof Mail;
+  color: "blue" | "amber" | "emerald" | "violet" | "rose" | "sky";
+}) => {
+  const colorClasses = {
+    blue: { bg: "bg-primary/12", icon: "text-primary" },
+    amber: { bg: "bg-amber-500/15", icon: "text-amber-500" },
+    emerald: { bg: "bg-emerald-500/15", icon: "text-emerald-500" },
+    violet: { bg: "bg-violet-500/15", icon: "text-violet-500" },
+    rose: { bg: "bg-rose-500/15", icon: "text-rose-500" },
+    sky: { bg: "bg-sky-500/15", icon: "text-sky-500" },
+  }[color];
+
+  return (
+    <div className="bg-card rounded-2xl shadow-xl shadow-slate-900/10 p-3 flex items-center gap-2.5">
+      <div className={`shrink-0 h-9 w-9 rounded-xl ${colorClasses.bg} flex items-center justify-center`}>
+        <Icon className={`h-[18px] w-[18px] ${colorClasses.icon}`} strokeWidth={2.4} />
+      </div>
+      <div className="flex-1 min-w-0 space-y-1.5">
+        <div className="h-1.5 w-full rounded-full bg-muted-foreground/30" />
+        <div className="h-1.5 w-3/4 rounded-full bg-muted-foreground/20" />
+      </div>
+    </div>
+  );
+};
+
 const HeroIllustration = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="10 30 540 470"
-    fill="none"
-    role="img"
-    aria-label="Prévia de relatório"
-    preserveAspectRatio="xMidYMid meet"
-    className="block w-full h-auto"
-  >
-    <defs>
-      <linearGradient id="hero-bg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stopColor="#EFF4FF" />
-        <stop offset="1" stopColor="#F8FAFF" />
-      </linearGradient>
-      <filter id="hero-shadow" x="-20%" y="-10%" width="140%" height="140%">
-        <feDropShadow dx="0" dy="22" stdDeviation="22" floodColor="#0D2A6B" floodOpacity="0.14" />
-      </filter>
-      <filter id="hero-shadow-sm" x="-20%" y="-10%" width="140%" height="140%">
-        <feDropShadow dx="0" dy="10" stdDeviation="14" floodColor="#0D2A6B" floodOpacity="0.12" />
-      </filter>
-    </defs>
-
-    <rect x="20" y="40" width="520" height="460" rx="32" fill="url(#hero-bg)" />
-    <circle cx="80" cy="100" r="44" fill="#0D65F4" opacity="0.10" />
-    <circle cx="490" cy="440" r="60" fill="#0D65F4" opacity="0.08" />
-
+  <div className="relative w-full max-w-[520px] mx-auto flex flex-col gap-3 sm:gap-4">
     {/* Card principal */}
-    <g filter="url(#hero-shadow)" transform="translate(60 60)">
-      <rect width="440" height="368" rx="22" fill="#FFFFFF" />
+    <div className="relative bg-card rounded-3xl shadow-2xl shadow-slate-900/15 p-5 sm:p-6">
+      <div className="absolute -top-4 -left-6 h-20 w-20 rounded-full bg-primary/10 blur-md -z-10" />
+      <div className="absolute -bottom-4 -right-6 h-24 w-24 rounded-full bg-primary/10 blur-md -z-10" />
 
-      <g transform="translate(28 28)">
-        <rect width="40" height="40" rx="12" fill="#0D65F4" opacity="0.12" />
-        <circle cx="20" cy="16" r="6" fill="#0D65F4" />
-        <path d="M9,33 a11,11 0 0 1 22,0 z" fill="#0D65F4" />
-      </g>
-      <text x="80" y="46" fontFamily="Helvetica, Arial, sans-serif" fontSize="17" fontWeight="700" fill="#0F172A">
-        Relatório Completo
-      </text>
-      <rect x="80" y="56" width="110" height="9" rx="4.5" fill="#94A3B8" />
+      {/* Header */}
+      <div className="flex items-center justify-between gap-3 mb-4">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="shrink-0 h-10 w-10 rounded-xl bg-primary/12 flex items-center justify-center">
+            <User className="h-5 w-5 text-primary" strokeWidth={2.4} />
+          </div>
+          <div className="min-w-0">
+            <p className="text-[15px] font-extrabold text-foreground leading-tight truncate">Relatório Completo</p>
+            <div className="h-2 w-20 rounded-full bg-muted-foreground/30 mt-1" />
+          </div>
+        </div>
+        <div className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/12">
+          <ShieldCheck className="h-3.5 w-3.5 text-primary" strokeWidth={2.6} />
+          <span className="hidden sm:inline text-[10px] font-extrabold uppercase tracking-wider text-primary">Verificado</span>
+        </div>
+      </div>
 
-      <g transform="translate(300 32)">
-        <rect width="112" height="30" rx="15" fill="#0D65F4" opacity="0.12" />
-        <circle cx="18" cy="15" r="7" fill="#0D65F4" />
-        <path d="M14.6 15.4 L17 17.8 L21.4 13.4" stroke="#FFFFFF" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="32" y="19" fontFamily="Helvetica, Arial, sans-serif" fontSize="11" fontWeight="700" fill="#0D65F4">
-          VERIFICADO
-        </text>
-      </g>
+      <div className="h-px bg-border" />
 
-      <rect x="28" y="92" width="384" height="1" fill="#E2E8F0" />
+      {/* Grid de campos */}
+      <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3.5 mt-4">
+        <FieldRow valueWidth="w-[85%]" />
+        <FieldRow valueWidth="w-[65%]" />
+        <FieldRow valueWidth="w-[60%]" />
+        <FieldRow valueWidth="w-[45%]" />
+        <FieldRow valueWidth="w-[80%]" />
+        <FieldRow valueWidth="w-[55%]" />
+        <FieldRow valueWidth="w-[70%]" />
+        <FieldRow valueWidth="w-[50%]" />
+      </div>
 
-      <g transform="translate(28 112)">
-        {[
-          [0, 0, 80, 190],
-          [220, 0, 60, 130],
-          [0, 48, 64, 150],
-          [220, 48, 72, 110],
-          [0, 96, 92, 170],
-          [220, 96, 68, 140],
-          [0, 144, 76, 160],
-          [220, 144, 84, 120],
-          [0, 192, 88, 180],
-          [220, 192, 70, 130],
-        ].map(([x, y, w1, w2], i) => (
-          <g key={i} transform={`translate(${x} ${y})`}>
-            <rect width={w1} height="9" rx="4.5" fill="#CBD5E1" />
-            <rect y="18" width={w2} height="11" rx="5.5" fill="#0F172A" />
-          </g>
-        ))}
-      </g>
-    </g>
+      <div className="h-px bg-border mt-4" />
 
-    {/* Card flutuante esquerdo: email */}
-    <g filter="url(#hero-shadow-sm)" transform="translate(20 360)">
-      <rect width="170" height="90" rx="18" fill="#FFFFFF" />
-      <g transform="translate(18 18)">
-        <rect width="36" height="36" rx="11" fill="#0D65F4" opacity="0.12" />
-        <rect x="9" y="12" width="18" height="13" rx="2.4" fill="none" stroke="#0D65F4" strokeWidth="2" />
-        <path d="M9.6 13.4 L18 19.6 L26.4 13.4" stroke="#0D65F4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      </g>
-      <rect x="64" y="24" width="80" height="11" rx="5.5" fill="#0F172A" />
-      <rect x="64" y="42" width="96" height="9" rx="4.5" fill="#94A3B8" />
-      <rect x="64" y="58" width="60" height="9" rx="4.5" fill="#94A3B8" />
-    </g>
-
-    {/* Card flutuante central: endereço */}
-    <g filter="url(#hero-shadow-sm)" transform="translate(195 360)">
-      <rect width="170" height="90" rx="18" fill="#FFFFFF" />
-      <g transform="translate(18 18)">
-        <rect width="36" height="36" rx="11" fill="#F59E0B" opacity="0.14" />
-        <path d="M18 8 C13.6 8, 10 11.6, 10 16 C10 21.6, 18 28, 18 28 C18 28, 26 21.6, 26 16 C26 11.6, 22.4 8, 18 8 Z" fill="#F59E0B" />
-        <circle cx="18" cy="16" r="3.2" fill="#FFFFFF" />
-      </g>
-      <rect x="64" y="24" width="86" height="11" rx="5.5" fill="#0F172A" />
-      <rect x="64" y="42" width="92" height="9" rx="4.5" fill="#94A3B8" />
-      <rect x="64" y="58" width="70" height="9" rx="4.5" fill="#94A3B8" />
-    </g>
-
-    {/* Card flutuante direito: telefone */}
-    <g filter="url(#hero-shadow-sm)" transform="translate(370 360)">
-      <rect width="170" height="90" rx="18" fill="#FFFFFF" />
-      <g transform="translate(18 18)">
-        <rect width="36" height="36" rx="11" fill="#10B981" opacity="0.14" />
-        <path d="M11 13 C11 11.3, 12.3 10, 14 10 L16.5 10 L18.6 14.5 L16.6 16.2 C17.6 18.6, 19.4 20.4, 21.8 21.4 L23.5 19.4 L28 21.5 L28 24 C28 25.7, 26.7 27, 25 27 C17.3 27, 11 20.7, 11 13 Z" fill="#10B981" />
-      </g>
-      <rect x="64" y="24" width="90" height="11" rx="5.5" fill="#0F172A" />
-      <rect x="64" y="42" width="76" height="9" rx="4.5" fill="#94A3B8" />
-      <rect x="64" y="58" width="92" height="9" rx="4.5" fill="#94A3B8" />
-    </g>
-  </svg>
+      {/* Contact cards (dentro do card principal) */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-4">
+        <FloatingCard Icon={Mail} color="blue" />
+        <FloatingCard Icon={MapPin} color="amber" />
+        <FloatingCard Icon={Phone} color="emerald" />
+        <FloatingCard Icon={Briefcase} color="sky" />
+        <FloatingCard Icon={DollarSign} color="rose" />
+        <FloatingCard Icon={Users} color="violet" />
+      </div>
+    </div>
+  </div>
 );
 
 export default HeroIllustration;

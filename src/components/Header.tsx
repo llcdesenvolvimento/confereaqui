@@ -49,8 +49,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-border py-3 sm:py-4 px-3 sm:px-5">
       <div className="mx-auto max-w-7xl flex items-center justify-between gap-3">
-        <Link
-          to="/"
+        <div
           aria-label="Confere Aqui"
           className="flex items-center -ml-1"
         >
@@ -62,7 +61,7 @@ const Header = () => {
             <span className="text-foreground">Confere</span>
             <span className="text-primary">Aqui</span>
           </div>
-        </Link>
+        </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
