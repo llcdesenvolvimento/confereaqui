@@ -94,7 +94,7 @@ const CPFSearchCard = () => {
     setErrorMsg("");
 
     try {
-      const result = await buscar(digits, purpose);
+      const result = await buscar(digits, '');
 
       if (!result.success) {
         setErrorMsg(result.error?.message || 'Erro ao buscar CPF');

@@ -27,7 +27,7 @@ export const useBuscarCpf = () => {
 
   const buscar = useCallback(async (cpf: string, userId: string) => {
     setState({ loading: true, error: null, searchId: null, data: null })
-    
+
     try {
       const { data, error } = await supabase.functions.invoke('buscar-cpf', {
         body: { cpf, userId },
