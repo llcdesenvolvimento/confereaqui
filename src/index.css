@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Poppins:wght@600;700;800&family=Inter:wght@600;700;800;900&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@600;700&family=Bricolage+Grotesque:wght@600;700;800&family=Archivo:wght@700;800;900&family=Urbanist:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 12%;
+
+    --primary: 220 95% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 75% 93%;
+    --secondary-foreground: 220 80% 32%;
+
+    --muted: 222 15% 93%;
+    --muted-foreground: 222 10% 48%;
+
+    --accent: 220 85% 94%;
+    --accent-foreground: 220 90% 38%;
+
+    --destructive: 0 80% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 90%;
+    --input: 220 15% 88%;
+    --ring: 220 95% 54%;
+
+    --radius: 0.875rem;
+
+    --header-bg: 220 85% 40%;
+    --header-foreground: 0 0% 100%;
+
+    --success: 145 72% 37%;
+    --success-foreground: 0 0% 100%;
+
+    --upsell-blue: 215 70% 40%;
+    --upsell-blue-foreground: 0 0% 100%;
+    --upsell-amber: 12 85% 55%;
+    --upsell-amber-foreground: 0 0% 100%;
+    --upsell-purple: 340 75% 55%;
+    --upsell-purple-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 224 72% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scalePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

@@ -1,0 +1,8 @@
+# robots.txt - Confere Aqui
+
+User-agent: *
+Allow: /
+Disallow: /consulta
+Disallow: /relatorio
+
+Sitemap: https://confereaqui.com/sitemap.xml
