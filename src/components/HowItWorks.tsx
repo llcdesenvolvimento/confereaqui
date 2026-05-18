@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 const steps: { title: string; description: string; icon: LucideIcon }[] = [
   {
     title: "Realize a consulta",
-    description: "Realize a consulta e visualize um relatório parcial com as primeiras informações disponíveis.",
+    description: "Realize a consulta e visualize uma prévia da consulta com as primeiras informações disponíveis.",
     icon: Search,
   },
   {
     title: "Efetue o pagamento",
-    description: "Após visualizar os dados parciais, você pode prosseguir para o pagamento via PIX para acessar o relatório por R$ 18,90.",
+    description: "Após visualizar a prévia da consulta, você pode prosseguir para o pagamento via PIX para acessar o relatório por R$ 18,90.",
     icon: QrCode,
   },
   {

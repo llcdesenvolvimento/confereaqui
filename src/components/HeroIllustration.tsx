@@ -1,4 +1,4 @@
-import { ShieldCheck, User, Mail, MapPin, Phone, Briefcase, DollarSign, Users } from "lucide-react";
+import { User, Mail, MapPin, Phone, Briefcase, DollarSign, Users } from "lucide-react";
 
 const FieldRow = ({ valueWidth }: { valueWidth: string }) => (
   <div>
@@ -50,13 +50,9 @@ const HeroIllustration = () => (
             <User className="h-5 w-5 text-primary" strokeWidth={2.4} />
           </div>
           <div className="min-w-0">
-            <p className="text-[15px] font-extrabold text-foreground leading-tight truncate">Relatório Completo</p>
+            <p className="text-[15px] font-extrabold text-foreground leading-tight truncate">Relatório Consolidado</p>
             <div className="h-2 w-20 rounded-full bg-muted-foreground/30 mt-1" />
           </div>
-        </div>
-        <div className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/12">
-          <ShieldCheck className="h-3.5 w-3.5 text-primary" strokeWidth={2.6} />
-          <span className="hidden sm:inline text-[10px] font-extrabold uppercase tracking-wider text-primary">Verificado</span>
         </div>
       </div>
 

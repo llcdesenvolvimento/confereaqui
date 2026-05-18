@@ -44,7 +44,7 @@ const SobreNos = () => {
         <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
           <li>Digite o número do CPF que deseja consultar e selecione a finalidade da consulta;</li>
           <li>Visualize uma prévia gratuita com as primeiras informações disponíveis;</li>
-          <li>Realize o pagamento via Pix para liberar o relatório completo;</li>
+          <li>Realize o pagamento via Pix para liberar o relatório consolidado;</li>
           <li>Após a confirmação do Pix, o conteúdo é liberado na tela em segundos e uma cópia é enviada para o e-mail informado.</li>
         </ul>
 

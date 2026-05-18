@@ -4,7 +4,8 @@ import usePageMeta from "@/hooks/usePageMeta";
 const Privacidade = () => {
   usePageMeta({
     title: "Confere Aqui - Política de Privacidade",
-    description: "Política de Privacidade da Confere Aqui. Saiba como tratamos dados pessoais, quais são seus direitos como titular e as medidas de proteção adotadas em conformidade com a LGPD.",
+    description:
+      "Política de Privacidade da Confere Aqui. Saiba como tratamos dados pessoais, quais são seus direitos como titular e as medidas de proteção adotadas em conformidade com a LGPD.",
     canonical: "https://confereaqui.com/politica-de-privacidade",
   });
 
@@ -12,325 +13,208 @@ const Privacidade = () => {
     <LegalPageLayout
       eyebrow="Política de Privacidade"
       title="Política de Privacidade"
-      updatedAt="04 de janeiro de 2026"
+      updatedAt="18 de maio de 2026"
       slug="politica-de-privacidade"
     >
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          A Confere Aqui leva a privacidade a sério e trabalha com total transparência. Esta Política descreve de que forma os dados pessoais podem ser utilizados ao longo da sua experiência com o site e com os serviços de consulta e autoverificação, as finalidades que amparam esse uso, os terceiros com quem eventualmente compartilhamos informações para manter o serviço em funcionamento e os direitos que você possui como titular de dados.
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Para entrar em contato conosco, esclarecer dúvidas ou exercer qualquer direito relacionado à privacidade, escreva para: <a href="mailto:suporte@confereaqui.com" className="text-primary hover:underline">suporte@confereaqui.com</a>
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          O texto vigente desta Política está sempre acessível em: <a href="/politica-de-privacidade" className="text-primary hover:underline">confereaqui.com/politica-de-privacidade</a>
-        </p>
+      {/* 1 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">1. Introdução</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        A Confere Aqui é uma plataforma digital especializada na organização e disponibilização de informações públicas com base no número de CPF de pessoas físicas. O serviço é prestado de acordo com as leis brasileiras, especialmente a Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018), e tem como objetivo facilitar o acesso a informações públicas de forma estruturada e segura, para finalidades legítimas como verificação cadastral, prevenção a fraudes, análise de risco e apoio à tomada de decisão entre particulares.
+      </p>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você utiliza nossos serviços. Também explica seus direitos como titular de dados pessoais.
+      </p>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        A Confere Aqui <strong className="text-foreground">não trata dados pessoais sensíveis</strong> nos termos da LGPD (informações sobre saúde, religião, orientação sexual, opinião política, filiação sindical ou origem racial). Trabalhamos exclusivamente com dados cadastrais, de contato, relacionamentos públicos e participações societárias, obtidos de fontes públicas e parceiros autorizados.
+      </p>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Ao utilizar nosso serviço, você concorda com esta Política de Privacidade e com os <a href="/termos-de-uso" className="text-primary hover:underline">Termos de Uso</a> da plataforma. Suas informações pessoais serão tratadas conforme descrito abaixo.
+      </p>
 
-        {/* 1 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">1. A quem esta Política se destina</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">O conteúdo desta Política abrange:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Pessoas que navegam pelo site da Confere Aqui;</li>
-          <li>Usuários que preenchem formulários na plataforma;</li>
-          <li>Clientes que efetuam pagamentos e adquirem relatórios;</li>
-          <li>Titulares de dados que queiram exercer direitos garantidos pela LGPD.</li>
-        </ul>
+      {/* 2 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">2. Coleta e uso de informações</h2>
+      <h3 className="text-base font-bold text-foreground mt-5 mb-2">Dados que coletamos</h3>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li><strong className="text-foreground">Dados de identificação:</strong> nome, e-mail e CPF, quando necessários para realizar a consulta.</li>
+        <li><strong className="text-foreground">Dados de pagamento:</strong> informações mínimas exigidas para o processamento da cobrança via Pix.</li>
+        <li><strong className="text-foreground">Dados de navegação:</strong> endereço IP, tipo de navegador, páginas visitadas e tempo de permanência.</li>
+        <li><strong className="text-foreground">Dados de consulta:</strong> CPF consultado, tipo de relatório ou módulo solicitado, data e horário da consulta.</li>
+      </ul>
+      <h3 className="text-base font-bold text-foreground mt-5 mb-2">Como utilizamos os dados</h3>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li>Processar e entregar os serviços de consulta contratados;</li>
+        <li>Enviar o relatório solicitado para o e-mail informado;</li>
+        <li>Processar pagamentos de forma segura;</li>
+        <li>Melhorar nossos serviços e a experiência do usuário;</li>
+        <li>Cumprir obrigações legais e regulamentares;</li>
+        <li>Comunicar sobre atualizações importantes dos serviços.</li>
+      </ul>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        <strong className="text-foreground">Importante:</strong> os dados consultados via CPF são extraídos de bases públicas e o <strong className="text-foreground">conteúdo detalhado dos relatórios não fica armazenado em nossos servidores após a consulta</strong>. O relatório é exibido na tela ao final da consulta e enviado uma única vez ao e-mail informado — não mantemos cópias dos resultados, nem reutilizamos esse conteúdo para enriquecer bases internas ou outras finalidades. Mantemos apenas registros mínimos necessários para fins de segurança, prevenção a fraudes e cumprimento de obrigações legais (como data/hora da consulta, endereço IP e dados de pagamento).
+      </p>
 
-        {/* 2 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">2. Termos essenciais (guia rápido)</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Para tornar a leitura mais simples:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li><strong className="text-foreground">Dados pessoais:</strong> qualquer informação capaz de identificar ou tornar identificável uma pessoa física.</li>
-          <li><strong className="text-foreground">Titular:</strong> a pessoa a quem determinado dado pessoal se refere.</li>
-          <li><strong className="text-foreground">Tratamento:</strong> toda e qualquer operação envolvendo dados (coleta, consulta, organização, armazenamento, compartilhamento, eliminação).</li>
-          <li><strong className="text-foreground">LGPD:</strong> Lei nº 13.709/2018.</li>
-        </ul>
+      {/* 3 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">3. Tipos de informações nos relatórios</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Nossa plataforma oferece relatórios estruturados a partir de informações públicas vinculadas ao CPF informado. A composição exata depende do módulo contratado e do que estiver disponível nas fontes integradas no momento da consulta. Categorias não contratadas não são exibidas.
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li><strong className="text-foreground">Relatório Consolidado:</strong> dados cadastrais (nome, filiação, data de nascimento, situação cadastral), e-mails e demais informações cadastrais públicas vinculadas ao CPF.</li>
+        <li><strong className="text-foreground">Telefones:</strong> telefones identificados em registros públicos.</li>
+        <li><strong className="text-foreground">Participações Societárias:</strong> empresas e quadros societários em que o CPF figura como sócio ou administrador.</li>
+        <li><strong className="text-foreground">Vínculos:</strong> vínculos identificados em registros públicos.</li>
+      </ul>
 
-        {/* 3 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">3. Quais dados podem ser utilizados</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          A Confere Aqui trabalha exclusivamente com os dados indispensáveis para operar o serviço, processar compras, entregar relatórios, prevenir fraudes e garantir a segurança da plataforma.
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Esses dados podem surgir em duas situações principais: informações fornecidas diretamente pelo usuário (como o CPF para consulta ou dados preenchidos no checkout) e informações obtidas de fontes integradas lícitas para a montagem do relatório, conforme a disponibilidade.
-        </p>
+      {/* 4 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">4. Finalidade dos relatórios e responsabilidade do usuário</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+        Os relatórios oferecidos pela plataforma são voltados exclusivamente para finalidades legítimas, tais como:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li>Verificação cadastral de clientes, fornecedores ou parceiros comerciais;</li>
+        <li>Prevenção e detecção de fraudes;</li>
+        <li>Análise e proteção ao crédito entre particulares;</li>
+        <li>Gestão de risco e <em>due diligence</em>;</li>
+        <li>Cumprimento de obrigações contratuais ou pré-contratuais.</li>
+      </ul>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2">Ao utilizar nossos serviços, você declara que:</p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li>Possui base legal válida para consultar o CPF de terceiros;</li>
+        <li>Utilizará as informações obtidas de forma legítima, conforme a LGPD e demais leis aplicáveis;</li>
+        <li>Não utilizará os relatórios para finalidades ilícitas, discriminatórias, perseguição, exposição vexatória ou qualquer forma de constrangimento;</li>
+        <li>É o único responsável pelo uso que fizer das informações consultadas.</li>
+      </ul>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        <strong className="text-foreground">Atenção:</strong> a plataforma não verifica individualmente a base legal de cada consulta realizada. O usuário é integralmente responsável por garantir que possui autorização legal para acessar as informações de terceiros e por qualquer uso indevido dos dados obtidos.
+      </p>
 
-        {/* Tabela 1 */}
-        <div className="overflow-x-auto mb-6">
-          <table className="w-full text-xs border border-border rounded-xl overflow-hidden">
-            <thead>
-              <tr className="bg-muted/50">
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Categoria / conjunto</th>
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Quem é o titular</th>
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Exemplos de dados</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted-foreground">
-              <tr className="border-b border-border">
-                <td className="p-3">Consulta (entrada)</td>
-                <td className="p-3">Usuário que realiza a busca</td>
-                <td className="p-3">CPF digitado no formulário</td>
-              </tr>
-              <tr className="border-b border-border bg-muted/20">
-                <td className="p-3">Resultado parcial / prévia</td>
-                <td className="p-3">Pessoa consultada</td>
-                <td className="p-3">Dados resumidos (ex.: iniciais do nome, indicador de consistência)</td>
-              </tr>
-              <tr className="border-b border-border">
-                <td className="p-3">Pagamento (checkout)</td>
-                <td className="p-3">Comprador</td>
-                <td className="p-3">Nome, CPF, e-mail e dados mínimos exigidos pelo gateway de pagamento</td>
-              </tr>
-              <tr className="border-b border-border bg-muted/20">
-                <td className="p-3">Relatório principal</td>
-                <td className="p-3">Pessoa consultada</td>
-                <td className="p-3">Dados cadastrais disponíveis (ex.: nome, data de nascimento, filiação, situação cadastral)</td>
-              </tr>
-              <tr className="border-b border-border">
-                <td className="p-3">Módulos complementares</td>
-                <td className="p-3">Pessoa consultada</td>
-                <td className="p-3">Telefones, endereços, participações societárias, vínculos (quando contratados)</td>
-              </tr>
-              <tr className="border-b border-border bg-muted/20">
-                <td className="p-3">Comunicações de serviço</td>
-                <td className="p-3">Comprador</td>
-                <td className="p-3">E-mail para envio do relatório, confirmações e notificações técnicas</td>
-              </tr>
-              <tr>
-                <td className="p-3">Segurança/antifraude</td>
-                <td className="p-3">Usuário e/ou pessoa consultada</td>
-                <td className="p-3">Dados técnicos e registros de acesso (ex.: IP, data/hora, identificadores de sessão)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      {/* 5 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">5. Base legal para tratamento de dados</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+        O tratamento dos seus dados pessoais é realizado com base nas seguintes hipóteses legais previstas na LGPD:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li><strong className="text-foreground">Execução de contrato:</strong> para processar e entregar os serviços de consulta contratados.</li>
+        <li><strong className="text-foreground">Legítimo interesse:</strong> para melhorar nossos serviços, prevenir fraudes e garantir a segurança da plataforma.</li>
+        <li><strong className="text-foreground">Cumprimento de obrigação legal ou regulatória:</strong> para atender exigências legais aplicáveis ao serviço.</li>
+        <li><strong className="text-foreground">Exercício regular de direitos:</strong> incluindo a hipótese de proteção ao crédito prevista no art. 7º, X da LGPD.</li>
+      </ul>
 
-        {/* 4 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">4. De onde vêm os dados</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Os dados podem ter três origens:</p>
+      {/* 6 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">6. Precisão das informações e limitação de responsabilidade</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Os relatórios exibem informações extraídas de bases de dados públicas e de parceiros autorizados, refletindo o que consta nessas fontes no momento da consulta. Embora nos esforcemos para garantir a qualidade e a atualização dos dados, as informações podem, em determinados casos, apresentar inconsistências, estar desatualizadas ou incompletas devido às características das próprias bases de origem.
+      </p>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Isso é inerente a qualquer serviço de consulta de dados no mercado. Em geral, as informações exibidas refletem o que consta nas mesmas bases utilizadas por bancos, bureaus de crédito e outras empresas do setor. Assim, quando há alguma inconsistência ou defasagem, é provável que essa divergência esteja presente também em outras fontes do mercado, não sendo uma alteração ou erro exclusivo da Confere Aqui.
+      </p>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        <strong className="text-foreground">Importante:</strong> o uso das informações é de responsabilidade exclusiva do usuário, que deve sempre complementá-las com outros elementos de análise, verificação documental e avaliação criteriosa antes de tomar decisões com base nos relatórios. A plataforma não se responsabiliza por decisões tomadas exclusivamente com base nos dados fornecidos.
+      </p>
 
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2"><strong className="text-foreground">4.1. Informações que você nos fornece</strong> — Por exemplo, o CPF digitado para iniciar a consulta ou os dados de contato preenchidos no checkout.</p>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2"><strong className="text-foreground">4.2. Dados retornados por fontes integradas lícitas</strong> — Com base no CPF informado, a Plataforma pode organizar e exibir informações provenientes de fontes integradas, dentro dos limites legais e técnicos.</p>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4"><strong className="text-foreground">4.3. Informações técnicas e de segurança</strong> — Para assegurar a estabilidade e a segurança da Plataforma, podemos coletar dados técnicos de acesso (ex.: data/hora, logs, dispositivo/navegador, IP, registros de falha).</p>
+      {/* 7 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">7. Compartilhamento de dados</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+        Não vendemos, não alugamos e não comercializamos suas informações pessoais. Seus dados podem ser compartilhados apenas nas seguintes situações:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li><strong className="text-foreground">Processadores de pagamento:</strong> Pagar.me, responsável por processar as transações financeiras.</li>
+        <li><strong className="text-foreground">Prestadores de serviços:</strong> empresas que nos auxiliam na operação da plataforma (hospedagem em nuvem, envio de e-mails transacionais, monitoramento e antifraude).</li>
+        <li><strong className="text-foreground">Cumprimento legal:</strong> quando exigido por lei, ordem judicial ou autoridades competentes.</li>
+        <li><strong className="text-foreground">Proteção de direitos:</strong> para proteger nossos direitos, propriedade ou segurança e os de terceiros.</li>
+      </ul>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Todos os terceiros que recebem dados pessoais são obrigados contratualmente a mantê-los seguros e a utilizá-los apenas para os fins específicos autorizados.
+      </p>
 
-        {/* Tabela 2 */}
-        <div className="overflow-x-auto mb-6">
-          <table className="w-full text-xs border border-border rounded-xl overflow-hidden">
-            <thead>
-              <tr className="bg-muted/50">
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Conjunto</th>
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Origem</th>
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Finalidade</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted-foreground">
-              <tr className="border-b border-border">
-                <td className="p-3">Consulta (CPF)</td>
-                <td className="p-3">Usuário</td>
-                <td className="p-3">Dar início à busca e produzir o resultado</td>
-              </tr>
-              <tr className="border-b border-border bg-muted/20">
-                <td className="p-3">Checkout</td>
-                <td className="p-3">Usuário</td>
-                <td className="p-3">Viabilizar a compra e a entrega do relatório</td>
-              </tr>
-              <tr className="border-b border-border">
-                <td className="p-3">Relatório / módulos</td>
-                <td className="p-3">Fontes integradas lícitas</td>
-                <td className="p-3">Compor a entrega de acordo com o que foi contratado</td>
-              </tr>
-              <tr>
-                <td className="p-3">Logs técnicos</td>
-                <td className="p-3">Sistemas de segurança</td>
-                <td className="p-3">Prevenção de fraudes, estabilidade e auditoria</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      {/* 8 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">8. Cookies e dados de navegação</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+        Utilizamos cookies e tecnologias similares para melhorar a experiência de navegação e coletar informações estatísticas sobre o uso do site. Os tipos de cookies utilizados incluem:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li><strong className="text-foreground">Cookies essenciais:</strong> necessários para o funcionamento básico do site.</li>
+        <li><strong className="text-foreground">Cookies de performance:</strong> para análise de uso e melhoria dos serviços.</li>
+        <li><strong className="text-foreground">Cookies de funcionalidade:</strong> para lembrar suas preferências.</li>
+      </ul>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Você pode aceitar ou recusar o uso de cookies nas configurações do seu navegador. Também coletamos dados de log, como endereço IP, tipo de navegador, páginas acessadas e tempo de visita, sempre de forma agregada e proporcional à finalidade de segurança e melhoria do serviço.
+      </p>
 
-        {/* 5 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">5. Para que utilizamos os dados (finalidades)</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Os dados pessoais são utilizados para:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Possibilitar a consulta e a exibição dos resultados;</li>
-          <li>Entregar o relatório e os complementos adquiridos;</li>
-          <li>Processar pagamentos e validar transações;</li>
-          <li>Enviar comunicações indispensáveis (ex.: confirmação de compra, link de acesso, recibos, avisos técnicos);</li>
-          <li>Combater fraudes e abusos, protegendo titulares, usuários e a própria Plataforma;</li>
-          <li>Manter registros para auditoria, suporte e exercício regular de direitos.</li>
-        </ul>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          A Plataforma <strong className="text-foreground">não pode ser utilizada</strong> para perseguição, assédio, discriminação, vigilância indevida ou qualquer outra finalidade contrária à lei.
-        </p>
+      {/* 9 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">9. Retenção de dados</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+        Mantemos seus dados pessoais apenas pelo tempo necessário para as finalidades descritas nesta política:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li><strong className="text-foreground">Conteúdo do relatório:</strong> não é armazenado após a entrega ao usuário.</li>
+        <li><strong className="text-foreground">Dados de pagamento e registros fiscais:</strong> conforme exigências legais e fiscais aplicáveis (até cinco anos).</li>
+        <li><strong className="text-foreground">Dados de contato do comprador:</strong> até que você solicite a exclusão ou deixe de utilizar o serviço.</li>
+        <li><strong className="text-foreground">Logs de acesso e segurança:</strong> por até seis meses, para fins de auditoria e prevenção a fraudes.</li>
+      </ul>
 
-        {/* 6 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">6. Fundamentos legais (LGPD)</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Quando a Confere Aqui atua como controladora, o tratamento pode estar amparado, conforme a situação, por:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li><strong className="text-foreground">Execução de contrato</strong> (ex.: processar pagamento e disponibilizar o relatório);</li>
-          <li><strong className="text-foreground">Cumprimento de obrigação legal ou regulatória</strong> (quando aplicável);</li>
-          <li><strong className="text-foreground">Exercício regular de direitos</strong> (ex.: prevenção e resposta a fraudes, defesa em procedimentos judiciais);</li>
-          <li><strong className="text-foreground">Legítimo interesse</strong> (ex.: segurança, combate a abusos, operações essenciais), sempre com salvaguardas e proporcionalidade.</li>
-        </ul>
+      {/* 10 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">10. Seus direitos sob a LGPD</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+        Como titular de dados pessoais, você possui os seguintes direitos:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li><strong className="text-foreground">Confirmação e acesso:</strong> saber se tratamos seus dados e ter acesso a eles.</li>
+        <li><strong className="text-foreground">Correção:</strong> solicitar a correção de dados incompletos ou incorretos.</li>
+        <li><strong className="text-foreground">Anonimização ou exclusão:</strong> solicitar a eliminação de dados desnecessários.</li>
+        <li><strong className="text-foreground">Portabilidade:</strong> solicitar a transferência dos dados a outro fornecedor de serviço ou produto, observados os requisitos legais.</li>
+        <li><strong className="text-foreground">Informação sobre compartilhamento:</strong> saber com quem compartilhamos seus dados.</li>
+        <li><strong className="text-foreground">Revogação do consentimento:</strong> retirar o consentimento quando aplicável.</li>
+        <li><strong className="text-foreground">Oposição:</strong> se opor ao tratamento realizado com base no legítimo interesse, quando cabível.</li>
+      </ul>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Para exercer seus direitos, entre em contato pelo e-mail: <a href="mailto:suporte@confereaqui.com" className="text-primary hover:underline">suporte@confereaqui.com</a>.
+      </p>
 
-        {/* Tabela 3 */}
-        <div className="overflow-x-auto mb-6">
-          <table className="w-full text-xs border border-border rounded-xl overflow-hidden">
-            <thead>
-              <tr className="bg-muted/50">
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Conjunto / atividade</th>
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Finalidade</th>
-                <th className="text-left p-3 font-semibold text-foreground border-b border-border">Base legal (LGPD)</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted-foreground">
-              <tr className="border-b border-border">
-                <td className="p-3">Processar pagamento</td>
-                <td className="p-3">Concluir a transação e cumprir obrigações administrativas</td>
-                <td className="p-3">Execução de contrato; exercício regular de direitos</td>
-              </tr>
-              <tr className="border-b border-border bg-muted/20">
-                <td className="p-3">Entregar relatório</td>
-                <td className="p-3">Prestar o serviço adquirido pelo usuário</td>
-                <td className="p-3">Execução de contrato e/ou legítimo interesse</td>
-              </tr>
-              <tr className="border-b border-border">
-                <td className="p-3">Antifraude e segurança</td>
-                <td className="p-3">Impedir abusos e proteger a Plataforma e os titulares</td>
-                <td className="p-3">Legítimo interesse; exercício regular de direitos</td>
-              </tr>
-              <tr className="border-b border-border bg-muted/20">
-                <td className="p-3">Suporte e atendimento</td>
-                <td className="p-3">Solucionar solicitações, incidentes e dúvidas</td>
-                <td className="p-3">Legítimo interesse; execução de contrato</td>
-              </tr>
-              <tr>
-                <td className="p-3">Logs e auditoria</td>
-                <td className="p-3">Garantir rastreabilidade, segurança e conformidade</td>
-                <td className="p-3">Legítimo interesse; obrigação legal (quando aplicável)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      {/* 11 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">11. Segurança das informações</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+        Adotamos medidas técnicas e organizacionais de segurança reconhecidas pelo mercado para proteger suas informações contra acessos não autorizados, alterações, divulgações ou destruições indevidas:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
+        <li>Criptografia de dados em trânsito;</li>
+        <li>Controles de acesso rigorosos aos sistemas;</li>
+        <li>Monitoramento contínuo de segurança;</li>
+        <li>Backups regulares e seguros;</li>
+        <li>Práticas internas e treinamento da equipe em segurança da informação.</li>
+      </ul>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        <strong className="text-foreground">Importante:</strong> embora utilizemos as melhores práticas de segurança, nenhum sistema é totalmente imune a riscos. Recomendamos que você também tome precauções para proteger suas informações.
+      </p>
 
-        {/* 7 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">7. Compartilhamento de dados e operadores</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">
-          A Confere Aqui <strong className="text-foreground">não comercializa dados pessoais</strong>. Informações podem ser compartilhadas apenas quando isso for estritamente necessário para a operação da Plataforma, como:
-        </p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Provedores de hospedagem e infraestrutura em nuvem;</li>
-          <li>Serviços de envio de e-mails transacionais;</li>
-          <li>Gateways de pagamento para cobrança e confirmação de compras;</li>
-          <li>Fornecedores de segurança, antifraude e monitoramento.</li>
-        </ul>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Dados também poderão ser compartilhados mediante ordem judicial, exigência legal ou para exercício regular de direitos, sempre restringindo o escopo ao mínimo indispensável.
-        </p>
+      {/* 12 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">12. Links para terceiros</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Nosso site pode conter links para serviços ou sites de terceiros, como gateways de pagamento. Não temos controle sobre suas políticas de privacidade e recomendamos que você leia os respectivos termos antes de prosseguir.
+      </p>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Ao efetuar o pagamento, o usuário declara estar de acordo com esta Política de Privacidade, com os Termos de Uso da Confere Aqui e também com os termos da <strong className="text-foreground">Pagar.me</strong>, empresa responsável pelo processamento dos pagamentos.
+      </p>
 
-        {/* 8 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">8. Armazenamento e prazos de retenção</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Mantemos dados e registros pelo tempo necessário para:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Prestar o serviço e oferecer suporte;</li>
-          <li>Atender obrigações legais e regulatórias (quando aplicável);</li>
-          <li>Prevenir fraudes e preservar a segurança do ambiente;</li>
-          <li>Guardar evidências para auditoria e defesa de direitos.</li>
-        </ul>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Determinadas informações podem permanecer temporariamente em cache técnico/operacional para garantir estabilidade e desempenho.
-        </p>
+      {/* 13 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">13. Alterações nesta Política</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Esta Política de Privacidade poderá ser atualizada a qualquer momento para refletir alterações na legislação, nos serviços ou em práticas internas. As modificações entrarão em vigor a partir da publicação nesta página. Recomendamos que você revise periodicamente esta política para se manter informado sobre como protegemos suas informações. A data da última revisão estará sempre indicada no topo deste documento.
+      </p>
 
-        {/* 9 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">9. Segurança da informação</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Aplicamos medidas razoáveis e proporcionais para mitigar riscos, incluindo, quando cabível:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Gestão de acessos e permissões;</li>
-          <li>Criptografia em trânsito (HTTPS);</li>
-          <li>Monitoramento contínuo e registros de atividade;</li>
-          <li>Atualizações e manutenção periódica dos sistemas;</li>
-          <li>Mecanismos de detecção e prevenção de fraude e abuso.</li>
-        </ul>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Nenhuma medida de segurança é infalível, mas trabalhamos continuamente para elevar o nível de proteção.
-        </p>
-
-        {/* 10 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">10. Cookies e tecnologias similares</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Podemos utilizar cookies e tecnologias equivalentes para:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Garantir o funcionamento do site (itens essenciais);</li>
-          <li>Fortalecer a segurança e impedir abusos;</li>
-          <li>Obter métricas agregadas de uso e desempenho.</li>
-        </ul>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Você pode ajustar as configurações do seu navegador para bloquear cookies. Nesse caso, algumas funcionalidades poderão não operar corretamente.
-        </p>
-
-        {/* 11 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">11. Transferência internacional de dados</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          A Confere Aqui pode recorrer a serviços de infraestrutura e armazenamento mantidos por fornecedores com servidores localizados fora do Brasil. Nesses cenários, buscamos adotar salvaguardas compatíveis com a LGPD e práticas de segurança apropriadas.
-        </p>
-
-        {/* 12 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">12. Seus direitos como titular (LGPD)</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Você pode solicitar, quando aplicável:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Confirmação de que seus dados estão sendo tratados;</li>
-          <li>Acesso aos dados pessoais;</li>
-          <li>Correção de informações incompletas, imprecisas ou desatualizadas;</li>
-          <li>Anonimização, bloqueio ou eliminação, quando cabível;</li>
-          <li>Detalhes sobre com quem seus dados foram compartilhados;</li>
-          <li>Oposição ao tratamento baseado em legítimo interesse, quando cabível.</li>
-        </ul>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Para exercer qualquer desses direitos, escreva para: <a href="mailto:suporte@confereaqui.com" className="text-primary hover:underline">suporte@confereaqui.com</a>
-        </p>
-
-        {/* 13 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">13. Pedidos de bloqueio ou restrição de consultas</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Quando recebemos solicitações de restrição, bloqueio ou medidas similares ligadas à privacidade, podemos pedir uma verificação mínima de identidade para evitar fraudes e confirmar a legitimidade do pedido.
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Se necessário, poderemos reter apenas os dados mínimos suficientes para registrar o atendimento e impedir novas consultas ao item bloqueado, respeitando obrigações legais e de segurança.
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Solicitações: <a href="mailto:suporte@confereaqui.com" className="text-primary hover:underline">suporte@confereaqui.com</a>
-        </p>
-
-        {/* 14 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">14. Automação e organização de informações</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Podemos empregar processos automatizados para:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Estruturar, organizar e apresentar os resultados de forma mais clara;</li>
-          <li>Padronizar relatórios e aprimorar a experiência do usuário.</li>
-        </ul>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          A Plataforma não se destina a realizar decisões automatizadas que produzam efeitos legais ou impacto significativo sobre o titular.
-        </p>
-
-        {/* 15 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">15. Atualizações desta Política</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-2">Esta Política pode ser revisada periodicamente para refletir:</p>
-        <ul className="text-sm text-muted-foreground list-disc list-inside mb-4 space-y-1.5">
-          <li>Alterações operacionais;</li>
-          <li>Melhorias técnicas;</li>
-          <li>Adequações à legislação.</li>
-        </ul>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          A data da última revisão estará sempre indicada no topo deste documento. Recomendamos que você consulte esta página periodicamente.
-        </p>
-
-        {/* 16 */}
-        <h2 className="text-lg font-bold text-foreground mt-8 mb-3">16. Fale conosco</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Para dúvidas, solicitações ou exercício de direitos:
-        </p>
-        <div className="mt-2 mb-4">
-          <a href="mailto:suporte@confereaqui.com" className="text-primary hover:underline text-sm font-medium">📩 suporte@confereaqui.com</a>
-        </div>
-
+      {/* 14 */}
+      <h2 className="text-lg font-bold text-foreground mt-8 mb-3">14. Contato</h2>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        Para dúvidas, sugestões ou solicitações relacionadas à privacidade e proteção de dados, ou para exercer seus direitos como titular de dados pessoais, escreva para:
+      </p>
+      <div className="mt-2 mb-2">
+        <a href="mailto:suporte@confereaqui.com" className="text-primary hover:underline text-sm font-medium">
+          📩 suporte@confereaqui.com
+        </a>
+      </div>
+      <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+        Assunto sugerido: <strong className="text-foreground">"LGPD — [tipo de solicitação]"</strong>. Responderemos sua solicitação em até <strong className="text-foreground">15 dias úteis</strong>, conforme previsto na LGPD.
+      </p>
     </LegalPageLayout>
   );
 };

@@ -32,6 +32,7 @@ const LogoIcon = () => (
 );
 
 const NAV_LINKS: { label: string; to: string }[] = [
+  { label: "Início", to: "/" },
   { label: "Consultar", to: "/consultar" },
   { label: "Sobre Nós", to: "/sobre" },
   { label: "FAQ", to: "/faq" },

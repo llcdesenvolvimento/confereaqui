@@ -1095,7 +1095,7 @@ const Relatorio = () => {
                          Área de Relatório de Consulta
                        </h1>
                        <h2 className="text-sm font-medium text-muted-foreground max-w-md mx-auto leading-relaxed">
-                         Após a confirmação do pagamento, seu relatório completo será exibido aqui com as seguintes categorias de informações
+                         Após a confirmação do pagamento, seu relatório consolidado será exibido aqui com as seguintes categorias de informações
                        </h2>
                       <ul className="text-sm text-muted-foreground text-left max-w-sm mx-auto space-y-1.5 mt-3">
                         <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" /> Dados Pessoais (Nome, CPF, Nascimento, Sexo)</li>

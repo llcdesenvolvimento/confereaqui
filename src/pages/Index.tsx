@@ -5,6 +5,8 @@ import HeroIllustration from "@/components/HeroIllustration";
 import WhatItDelivers from "@/components/WhatItDelivers";
 import ForWhom from "@/components/ForWhom";
 import Testimonials from "@/components/Testimonials";
+import AboutPlatform from "@/components/AboutPlatform";
+import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   usePageMeta({
@@ -24,15 +26,15 @@ const Index = () => {
               Consulta Online
             </span>
             <h1
-              className="text-[38px] leading-[1] sm:text-[48px] md:text-[52px] lg:text-[58px] md:leading-[1.05] font-bold text-foreground tracking-tight mb-4"
+              className="text-[32px] leading-[1.05] sm:text-[40px] md:text-[44px] lg:text-[48px] md:leading-[1.1] font-bold text-foreground tracking-normal mb-4"
               style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}
             >
-              Encontre <br className="sm:hidden" /><span className="text-primary">informações <br className="sm:hidden" />completas</span> <br className="sm:hidden" />em segundos
+              Consulte <span className="text-primary">informações completas</span> de forma rápida, simples e segura
             </h1>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-              Consulte dados de forma rápida, segura e simplificada. Obtenha informações
-              confiáveis e organizadas em poucos segundos.
+              Consulte dados cadastrais de maneira rápida e organizada. Informações completas
+              para sua tomada de decisão.
             </p>
 
             <Link
@@ -55,32 +57,8 @@ const Index = () => {
       <WhatItDelivers />
       <ForWhom />
       <Testimonials />
-
-      {/* CTA final */}
-      <section className="bg-[hsl(220,15%,98%)] border-t border-border px-3 sm:px-4 py-12 sm:py-16">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-4">
-            Começar agora
-          </span>
-          <h2
-            className="text-2xl sm:text-[28px] font-bold text-foreground tracking-tight mb-3"
-            style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}
-          >
-            Pronto para consultar?
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-7 max-w-xl mx-auto">
-            Realize a consulta e acesse um relatório com as informações disponíveis.
-          </p>
-
-          <Link
-            to="/consultar"
-            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-7 sm:px-14 py-4 text-[18px] sm:text-[20px] font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:shadow-primary/30 hover:brightness-110 active:scale-[0.98]"
-          >
-            Consultar Agora
-          </Link>
-
-        </div>
-      </section>
+      <AboutPlatform />
+      <ContactSection />
     </main>
   );
 };

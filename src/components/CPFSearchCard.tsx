@@ -2,41 +2,6 @@ import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { useBuscarCpf } from "@/hooks/useBuscarCpf";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-const PURPOSES: { value: string; title: string; description: string }[] = [
-  {
-    value: "legitimo-interesse",
-    title: "Legítimo interesse",
-    description: "Uso pessoal com motivo válido",
-  },
-  {
-    value: "confirmacao-identidade",
-    title: "Confirmação de identidade",
-    description: "Conferir identidade da pessoa",
-  },
-  {
-    value: "ciclo-credito",
-    title: "Ciclo de crédito",
-    description: "Avaliar crédito antes de fechar",
-  },
-  {
-    value: "execucao-contrato",
-    title: "Execução de contrato",
-    description: "Antes de fechar um acordo",
-  },
-  {
-    value: "outros",
-    title: "Outros",
-    description: "Outra finalidade não listada",
-  },
-];
 
 const formatDoc = (value: string): string => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
@@ -65,7 +30,6 @@ const isValidDoc = (value: string): boolean => {
 const CPFSearchCard = () => {
   const navigate = useNavigate();
   const [doc, setDoc] = useState("");
-  const [purpose, setPurpose] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
   const { buscar, loading: buscarLoading } = useBuscarCpf();
@@ -84,10 +48,6 @@ const CPFSearchCard = () => {
     if (buscarLoading) return;
     if (!isValid) {
       setErrorMsg("Digite um CPF válido para continuar");
-      return;
-    }
-    if (!purpose) {
-      setErrorMsg("Indique a finalidade da consulta antes de continuar");
       return;
     }
 
@@ -162,43 +122,6 @@ const CPFSearchCard = () => {
               Digite um CPF válido
             </p>
           }
-
-          <label htmlFor="purpose-select" className="block text-[11px] font-bold text-foreground/80 uppercase tracking-wider mt-5 mb-2">
-            Indique a finalidade da consulta
-          </label>
-          <Select
-            value={purpose}
-            onValueChange={(v) => {
-              setPurpose(v);
-              setErrorMsg("");
-            }}
-            disabled={buscarLoading}
-          >
-            <SelectTrigger
-              id="purpose-select"
-              className="w-full rounded-xl border border-[hsl(220,15%,82%)] bg-background px-4 py-3.5 h-auto text-base font-semibold text-foreground data-[placeholder]:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all disabled:opacity-50 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:stroke-[2.5]"
-            >
-              <SelectValue placeholder="Selecione uma opção">
-                {purpose && PURPOSES.find((o) => o.value === purpose)?.title}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent
-              position="popper"
-              side="bottom"
-              sideOffset={4}
-              avoidCollisions={false}
-              className="max-w-[calc(100vw-2rem)]"
-            >
-              {PURPOSES.map((opt) => (
-                <SelectItem key={opt.value} value={opt.value} className="py-3 pr-8">
-                  <div className="flex flex-col gap-0.5 whitespace-normal">
-                    <span className="text-sm font-bold text-foreground">{opt.title}</span>
-                    <span className="text-xs text-muted-foreground leading-snug">{opt.description}</span>
-                  </div>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
 
           <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
             Ao continuar, você concorda com os <a href="/termos-de-uso" className="text-primary font-medium hover:underline">Termos de Uso</a> e a <a href="/politica-de-privacidade" className="text-primary font-medium hover:underline">Política de Privacidade</a>.
